@@ -1,1 +1,234 @@
-<h1> Hello world from github pages</h1>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harshal Bane | Portfolio</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0b1020;
+  color: #eef2ff;
+  line-height: 1.6;
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 24px;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo { font-size: 24px; font-weight: bold; }
+.logo span, .accent { color: #8b9cff; }
+nav { display: flex; gap: 20px; }
+nav a, a { color: inherit; text-decoration: none; }
+nav a:hover { color: #8b9cff; }
+.hero {
+  min-height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.eyebrow {
+  color: #8b9cff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 13px;
+  font-weight: bold;
+}
+h1 {
+  font-size: clamp(44px, 8vw, 76px);
+  line-height: 1.05;
+  margin: 16px 0;
+}
+.lead { color: #a8b2ca; max-width: 650px; font-size: 18px; }
+.button {
+  display: inline-block;
+  padding: 12px 18px;
+  margin: 12px 8px 0 0;
+  border: 1px solid #35405d;
+  border-radius: 9px;
+  font-weight: bold;
+}
+.primary { background: #8b9cff; color: #0b1020; border: 0; }
+section { padding: 32px 0; }
+h2 { font-size: 26px; }
+.panel, .project {
+  background: #121a2e;
+  border: 1px solid #26314b;
+  border-radius: 14px;
+  padding: 22px;
+}
+.about {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 16px;
+}
+.muted { color: #a8b2ca; }
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.fact { background: #0d1427; padding: 14px; border-radius: 10px; }
+.fact span { display: block; color: #a8b2ca; font-size: 14px; }
+.skills { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  padding: 8px 14px;
+  background: #121a2e;
+  border: 1px solid #26314b;
+  border-radius: 30px;
+}
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+.project small { color: #8b9cff; }
+.project h3 { margin-bottom: 6px; }
+.project p { color: #a8b2ca; font-size: 14px; }
+.contact {
+  background: #121a2e;
+  border: 1px solid #26314b;
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+footer {
+  border-top: 1px solid #26314b;
+  color: #a8b2ca;
+  padding: 24px 0;
+  font-size: 13px;
+}
+@media (max-width: 700px) {
+  nav { gap: 10px; font-size: 13px; }
+  .about, .projects { grid-template-columns: 1fr; }
+  .contact { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+  <a class="logo" href="#home">HB<span>.</span></a>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="eyebrow">IT Student · Developer · Learner</div>
+  <h1>Hi, I'm <span class="accent">Harshal</span><br>Bane.</h1>
+  <p class="lead">
+    I'm an IT student at Thakur College of Engineering and
+    Technology, building practical skills in software development
+    and exploring how technology can solve everyday problems.
+  </p>
+  <div>
+    <a class="button primary" href="#projects">Explore My Work ↗</a>
+    <a class="button" href="mailto:harshalbanework@gmail.com">Get in Touch</a>
+  </div>
+</section>
+
+<section id="about">
+  <h2>A Little About Me</h2>
+  <div class="about">
+    <div class="panel">
+      <p class="muted">
+        I enjoy learning by building—whether that means writing code,
+        experimenting with new tools, or working with others on a
+        project. My current focus is strengthening my programming
+        fundamentals and growing as a software developer.
+      </p>
+    </div>
+    <div class="facts">
+      <div class="fact">
+        <strong>Education</strong>
+        <span>IT · TCET</span>
+      </div>
+      <div class="fact">
+        <strong>Focus</strong>
+        <span>Software Development</span>
+      </div>
+      <div class="fact">
+        <strong>Experience</strong>
+        <span>PrepGrad Internship</span>
+      </div>
+      <div class="fact">
+        <strong>Location</strong>
+        <span>Mumbai, India</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills I'm Building</h2>
+  <div class="skills">
+    <span class="chip">C</span>
+    <span class="chip">C++</span>
+    <span class="chip">Java</span>
+    <span class="chip">Python</span>
+    <span class="chip">HTML & CSS</span>
+    <span class="chip">JavaScript</span>
+    <span class="chip">Front-End Development</span>
+    <span class="chip">Communication</span>
+    <span class="chip">Problem Solving</span>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Selected Projects</h2>
+  <div class="projects">
+    <article class="project">
+      <small>Python · Desktop</small>
+      <h3>Expense Tracker</h3>
+      <p>A desktop app for recording expenses and reviewing
+      spending through a simple interface.</p>
+    </article>
+    <article class="project">
+      <small>C++ · Console</small>
+      <h3>Food Ordering System</h3>
+      <p>A menu-driven ordering program with item selection,
+      pricing and a repeat-order flow.</p>
+    </article>
+    <article class="project">
+      <small>Java · Mini Project</small>
+      <h3>Cricket Toss Simulator</h3>
+      <p>An interactive odd-even toss game where the winner
+      chooses to bat or bowl.</p>
+    </article>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div>
+      <h2>Let's Connect.</h2>
+      <p class="muted">Have an idea, opportunity, or project to discuss?</p>
+    </div>
+    <div>
+      <a class="button primary" href="mailto:harshalbanework@gmail.com">Email Me ↗</a>
+      <a class="button" href="https://github.com/MrHarshalBane" target="_blank" rel="noopener">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 Harshal Bane · Built with HTML & CSS</footer>
+</div>
+</body>
+</html>
