@@ -7,14 +7,14 @@
 <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 /* ================= THEME VARIABLES ================= */
 :root {
   --bg-dark: #070b14;
   --bg-gradient: radial-gradient(circle at 50% 0%, rgba(139, 156, 255, 0.12), transparent 50%);
-  --panel-bg: rgba(16, 24, 43, 0.7);
+  --panel-bg: rgba(16, 24, 43, 0.72);
   --panel-border: rgba(139, 156, 255, 0.16);
   --accent: #8b9cff;
   --accent-glow: rgba(139, 156, 255, 0.28);
@@ -30,7 +30,7 @@
 [data-theme="light"] {
   --bg-dark: #f8fafc;
   --bg-gradient: radial-gradient(circle at 50% 0%, rgba(79, 70, 229, 0.08), transparent 50%);
-  --panel-bg: rgba(255, 255, 255, 0.85);
+  --panel-bg: rgba(255, 255, 255, 0.88);
   --panel-border: rgba(99, 102, 241, 0.2);
   --accent: #4f46e5;
   --accent-glow: rgba(79, 70, 229, 0.2);
@@ -38,7 +38,7 @@
   --text-muted: #64748b;
   --badge-bg: rgba(79, 70, 229, 0.08);
   --badge-border: rgba(79, 70, 229, 0.25);
-  --card-sub: rgba(241, 245, 249, 0.8);
+  --card-sub: rgba(241, 245, 249, 0.85);
   --transition-curtain: #1e1b4b;
   --yt-red: #dc2626;
 }
@@ -57,7 +57,7 @@ body {
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-/* Page Transition Curtain (1-sec feel inspired by modern dev portfolios) */
+/* Page Transition Curtain */
 #page-curtain {
   position: fixed;
   inset: 0;
@@ -155,7 +155,7 @@ body {
 }
 
 .container {
-  max-width: 1060px;
+  max-width: 1080px;
   margin: auto;
   padding: 24px;
 }
@@ -175,7 +175,7 @@ header {
   color: var(--text-main);
 }
 .logo span, .accent { color: var(--accent); }
-nav { display: flex; gap: 24px; align-items: center; }
+nav { display: flex; gap: 20px; align-items: center; }
 nav a, .transition-link {
   color: var(--text-muted);
   text-decoration: none;
@@ -207,7 +207,7 @@ nav a:hover, .transition-link:hover { color: var(--accent); }
 }
 .theme-icon { width: 16px; height: 16px; fill: currentColor; }
 
-/* ================= HERO SECTION WITH PROFILE PIC ================= */
+/* ================= HERO SECTION WITH AVATAR ================= */
 .hero {
   min-height: 65vh;
   display: flex;
@@ -216,11 +216,9 @@ nav a:hover, .transition-link:hover { color: var(--accent); }
   gap: 40px;
   padding: 20px 0 60px 0;
 }
-.hero-content {
-  flex: 1.2;
-}
+.hero-content { flex: 1.25; }
 .hero-avatar-wrap {
-  flex: 0.8;
+  flex: 0.75;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -228,15 +226,15 @@ nav a:hover, .transition-link:hover { color: var(--accent); }
 }
 .avatar-container {
   position: relative;
-  width: 260px;
-  height: 260px;
+  width: 250px;
+  height: 250px;
 }
 .avatar-glow {
   position: absolute;
-  inset: -8px;
+  inset: -10px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
-  opacity: 0.45;
+  opacity: 0.4;
   filter: blur(14px);
   animation: glowPulse 3s infinite alternate;
 }
@@ -250,7 +248,7 @@ nav a:hover, .transition-link:hover { color: var(--accent); }
   height: 100%;
   border-radius: 50%;
   padding: 5px;
-  background: linear-gradient(135deg, var(--accent), rgba(255,255,255,0.05), var(--accent));
+  background: linear-gradient(135deg, var(--accent), rgba(255,255,255,0.08), var(--accent));
   box-shadow: 0 10px 30px var(--accent-glow);
 }
 .avatar-img {
@@ -263,13 +261,11 @@ nav a:hover, .transition-link:hover { color: var(--accent); }
   border: 3px solid var(--bg-dark);
   transition: transform 0.4s ease;
 }
-.avatar-img:hover {
-  transform: scale(1.03);
-}
+.avatar-img:hover { transform: scale(1.03); }
 .avatar-badge-status {
   position: absolute;
-  bottom: 14px;
-  right: 14px;
+  bottom: 12px;
+  right: 12px;
   background: #10b981;
   border: 3px solid var(--bg-dark);
   width: 22px;
@@ -310,7 +306,7 @@ h1 {
   color: var(--text-muted);
   font-size: 17px;
   line-height: 1.7;
-  max-width: 600px;
+  max-width: 620px;
 }
 .cta-group {
   margin-top: 28px;
@@ -322,7 +318,7 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 22px;
+  padding: 11px 20px;
   border: 1px solid #334155;
   border-radius: 10px;
   font-size: 14px;
@@ -380,7 +376,7 @@ section { padding: 48px 0; }
 /* About Layout */
 .about {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
+  grid-template-columns: 1.25fr 0.95fr;
   gap: 20px;
 }
 .about p {
@@ -390,19 +386,19 @@ section { padding: 48px 0; }
 .facts {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 12px;
 }
 .fact {
   background: var(--card-sub);
   border: 1px solid var(--panel-border);
-  padding: 16px;
+  padding: 14px 16px;
   border-radius: 12px;
 }
 .fact strong {
   display: block;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--text-main);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 .fact span {
   font-size: 13px;
@@ -499,9 +495,7 @@ section { padding: 48px 0; }
   transition: transform 0.4s ease;
   display: block;
 }
-.yt-thumb-wrap:hover .yt-thumb {
-  transform: scale(1.05);
-}
+.yt-thumb-wrap:hover .yt-thumb { transform: scale(1.05); }
 .yt-play-btn {
   position: absolute;
   top: 50%;
@@ -517,15 +511,13 @@ section { padding: 48px 0; }
   box-shadow: 0 4px 18px rgba(220, 38, 38, 0.4);
   transition: transform 0.2s ease;
 }
-.yt-thumb-wrap:hover .yt-play-btn {
-  transform: translate(-50%, -50%) scale(1.15);
-}
+.yt-thumb-wrap:hover .yt-play-btn { transform: translate(-50%, -50%) scale(1.15); }
 .yt-play-btn svg { width: 20px; height: 20px; fill: #fff; }
 .yt-duration {
   position: absolute;
   bottom: 10px;
   right: 10px;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.85);
   font-family: 'JetBrains Mono', monospace;
   font-size: 11px;
   color: #fff;
@@ -714,14 +706,13 @@ footer {
     <a class="transition-link" data-target="#about">About</a>
     <a class="transition-link" data-target="#experience">Experience</a>
     <a class="transition-link" data-target="#events">Events</a>
-    <a class="transition-link" data-target="#media">Interviews</a>
     <a class="transition-link" data-target="#projects">Projects</a>
+    <a class="transition-link" data-target="#media">Interviews</a>
     <a class="transition-link" data-target="#contact">Contact</a>
     
     <!-- Dark / Light Mode Switcher -->
     <button class="theme-toggle-btn" id="theme-btn" aria-label="Toggle Theme">
       <svg class="theme-icon" id="theme-icon" viewBox="0 0 24 24">
-        <!-- Moon Icon (for Dark Theme) -->
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
       </svg>
       <span id="theme-text">Dark</span>
@@ -740,10 +731,10 @@ footer {
     <h1>Hi, I'm <span class="accent">Harshal</span> Bane.</h1>
     <p class="lead">
       Information Technology student at Thakur College of Engineering & Technology (TCET), Mumbai. 
-      Actively building software, contributing to open source, and exploring cloud systems & tech communities.
+      Building practical software solutions, exploring cloud architectures & Web3, and competing in hackathons.
     </p>
     <div class="cta-group">
-      <a class="button primary transition-link" data-target="#projects">View Selected Work ↗</a>
+      <a class="button primary transition-link" data-target="#projects">View Projects ↗</a>
       <a class="button transition-link" data-target="#contact">Get in Touch</a>
       <a class="button" href="https://github.com/MrHarshalBane" target="_blank" rel="noopener">GitHub ↗</a>
       <a class="button" href="https://www.linkedin.com/in/harshal-bane" target="_blank" rel="noopener">LinkedIn ↗</a>
@@ -755,7 +746,6 @@ footer {
     <div class="avatar-container">
       <div class="avatar-glow"></div>
       <div class="avatar-frame">
-        <!-- Profile Picture: Primary path / GitHub / Fallback placeholder -->
         <img 
           class="avatar-img" 
           src="https://github.com/MrHarshalBane.png" 
@@ -768,26 +758,30 @@ footer {
   </div>
 </section>
 
-<!-- About Section -->
+<!-- About Section (Including Date of Birth) -->
 <section id="about">
   <div class="section-title"><span>01.</span> About Me</div>
   <div class="about">
     <div class="panel">
       <p>
-        I enjoy building software from first principles—whether developing desktop and web tools, participating in competitive hackathons, or contributing to open-source software.
+        I enjoy building software across the stack—from agricultural automation workflows and predictive ML models to decentralized contracts and responsive web tools.
       </p>
       <p>
-        I have a strong affinity for tech gatherings, developer summits, and competitive programming. When I'm not writing code, you can find me networking at dev meetups across Mumbai or collaborating on creative team initiatives.
+        I am an active attendee of developer gatherings across Mumbai (Microsoft, GitHub, Paytm, and DevX) and consistently test my skills via hackathons on Unstop and competitive programming on CodeChef.
       </p>
     </div>
     <div class="facts">
       <div class="fact">
-        <strong>TCET Mumbai</strong>
-        <span>B.Tech in IT (Pursuing)</span>
+        <strong>Education</strong>
+        <span>IT · TCET Mumbai</span>
       </div>
       <div class="fact">
-        <strong>PrepGrad</strong>
-        <span>Software Engineering Intern</span>
+        <strong>Date of Birth</strong>
+        <span>June 10, 2006</span>
+      </div>
+      <div class="fact">
+        <strong>Internship</strong>
+        <span>PrepGrad (Software Dev)</span>
       </div>
       <div class="fact">
         <strong>Open Source</strong>
@@ -796,6 +790,10 @@ footer {
       <div class="fact">
         <strong>Location</strong>
         <span>Mumbai, Maharashtra</span>
+      </div>
+      <div class="fact">
+        <strong>Interests</strong>
+        <span>Web3, ML & Cloud</span>
       </div>
     </div>
   </div>
@@ -808,11 +806,11 @@ footer {
     <article class="card">
       <div class="item-header">
         <span class="tag">Internship</span>
-        <small class="tag" style="border:none; background:transparent;">Recent</small>
+        <small class="tag" style="border:none; background:transparent;">Software</small>
       </div>
       <h3 class="role-title">Software Development Intern</h3>
       <p style="color: var(--accent); margin-bottom: 8px;">PrepGrad</p>
-      <p>Worked on practical front-end and core engineering tasks, building clean, responsive interfaces and improving program workflows.</p>
+      <p>Worked on practical front-end engineering, implementing responsive user interfaces, modular components, and improving program flow.</p>
     </article>
 
     <article class="card">
@@ -822,7 +820,7 @@ footer {
       </div>
       <h3 class="role-title">Official Contributor</h3>
       <p style="color: var(--accent); margin-bottom: 8px;">Open Source Connect India</p>
-      <p>Collaborated on open-source repositories, tracking issues, creating pull requests, and following collaborative git and CI workflows.</p>
+      <p>Contributed to community repositories through structured Git workflows, managing pull requests, triaging issues, and CI pipelines.</p>
     </article>
   </div>
 </section>
@@ -850,7 +848,7 @@ footer {
     </article>
   </div>
 
-  <h3 style="font-size: 17px; margin-bottom: 14px; color: var(--accent);">Developer Days, Summits & Offsites</h3>
+  <h3 style="font-size: 17px; margin-bottom: 14px; color: var(--accent);">Developer Days & Tech Offsites</h3>
   <div class="event-list">
     <div class="event-item">
       <h4>Microsoft Office Dev Days</h4>
@@ -871,9 +869,51 @@ footer {
   </div>
 </section>
 
+<!-- Featured Projects -->
+<section id="projects">
+  <div class="section-title"><span>04.</span> Featured Projects</div>
+  <div class="grid-3">
+    <article class="card">
+      <div class="item-header"><span class="tag">Full-Stack / AgriTech</span></div>
+      <h3 class="role-title" style="margin-top: 8px;">Crop Insurance Bridge</h3>
+      <p>A digitized platform accelerating agricultural claim verifications, streamlining assessment records, and connecting farmers with insurers.</p>
+    </article>
+
+    <article class="card">
+      <div class="item-header"><span class="tag">Python / ML</span></div>
+      <h3 class="role-title" style="margin-top: 8px;">Supply Chain Risk Predictor</h3>
+      <p>Predictive model built using Random Forest algorithms to forecast logistical delays and flag bottleneck risks across supply chains.</p>
+    </article>
+
+    <article class="card">
+      <div class="item-header"><span class="tag">Web3 / Solidity</span></div>
+      <h3 class="role-title" style="margin-top: 8px;">Smart Contract Architecture</h3>
+      <p>Decentralized application exploring Ethereum logic, state-safe contract deployments, and token transaction protocols.</p>
+    </article>
+
+    <article class="card">
+      <div class="item-header"><span class="tag">Web / Flutter</span></div>
+      <h3 class="role-title" style="margin-top: 8px;">Creator Platform XYZ</h3>
+      <p>Community platform engineered for independent creators to monetize digital assets and manage audience engagement workflows.</p>
+    </article>
+
+    <article class="card">
+      <div class="item-header"><span class="tag">Python Desktop</span></div>
+      <h3 class="role-title" style="margin-top: 8px;">Expense Tracker</h3>
+      <p>Desktop software designed to record personal transactions, categorize expenditures, and generate clean budget summaries.</p>
+    </article>
+
+    <article class="card">
+      <div class="item-header"><span class="tag">C++ Console</span></div>
+      <h3 class="role-title" style="margin-top: 8px;">Food Ordering Engine</h3>
+      <p>Menu-driven terminal system featuring real-time bill calculations, item customization, and order repeat processing.</p>
+    </article>
+  </div>
+</section>
+
 <!-- Featured Media / YouTube Interview -->
 <section id="media">
-  <div class="section-title"><span>04.</span> Featured Interview & Media</div>
+  <div class="section-title"><span>05.</span> Featured Interview & Media</div>
   <article class="card yt-card">
     <div class="yt-thumb-wrap" onclick="openModal('https://www.youtube.com/embed/eo2caKaSjEQ?autoplay=1')">
       <img 
@@ -898,7 +938,7 @@ footer {
       <ul class="yt-bullets">
         <li>Campus selection process, online assessments & technical interview rounds</li>
         <li>Day-to-day internship tasks at redBus & converting to a 10 LPA offer</li>
-        <li>DSA strategy, project preparation, and core subject recommendations</li>
+        <li>DSA roadmap, project preparation, and core engineering tips</li>
       </ul>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <button class="button primary" onclick="openModal('https://www.youtube.com/embed/eo2caKaSjEQ?autoplay=1')">
@@ -914,7 +954,7 @@ footer {
 
 <!-- Skills -->
 <section id="skills">
-  <div class="section-title"><span>05.</span> Technical Toolkit</div>
+  <div class="section-title"><span>06.</span> Technical Toolkit</div>
   <div class="panel skills-container">
     <div>
       <div class="skills-category">Languages & Core Fundamentals</div>
@@ -924,43 +964,21 @@ footer {
         <span class="chip">C / C++</span>
         <span class="chip">Data Structures & Algorithms</span>
         <span class="chip">DBMS & SQL</span>
+        <span class="chip">Digital Circuits</span>
       </div>
     </div>
     <div>
-      <div class="skills-category">Web & Cloud Tools</div>
+      <div class="skills-category">Web, Cloud & Developer Tools</div>
       <div class="skills-list">
         <span class="chip">HTML5 / CSS3</span>
         <span class="chip">JavaScript</span>
+        <span class="chip">Flutter</span>
         <span class="chip">Git / GitHub</span>
         <span class="chip">AWS</span>
         <span class="chip">Google Cloud Platform</span>
         <span class="chip">VS Code / Codespaces</span>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- Projects -->
-<section id="projects">
-  <div class="section-title"><span>06.</span> Selected Projects</div>
-  <div class="grid-3">
-    <article class="card">
-      <div class="item-header"><span class="tag">Python</span></div>
-      <h3 class="role-title" style="margin-top: 8px;">Expense Tracker</h3>
-      <p>A desktop app designed to record personal transactions, categorize expenditures, and visualize spending logs.</p>
-    </article>
-
-    <article class="card">
-      <div class="item-header"><span class="tag">C++</span></div>
-      <h3 class="role-title" style="margin-top: 8px;">Food Ordering Engine</h3>
-      <p>Interactive console software featuring item selection menus, dynamic pricing, and order repeat processing.</p>
-    </article>
-
-    <article class="card">
-      <div class="item-header"><span class="tag">Java</span></div>
-      <h3 class="role-title" style="margin-top: 8px;">Cricket Toss Simulator</h3>
-      <p>Odd-even toss simulator modeling authentic cricket game logic with randomized decisions and bat/bowl options.</p>
-    </article>
   </div>
 </section>
 
@@ -976,9 +994,10 @@ footer {
         <a class="social-btn" href="mailto:harshalbanework@gmail.com">✉ Email</a>
         <a class="social-btn" href="https://github.com/MrHarshalBane" target="_blank" rel="noopener">GitHub</a>
         <a class="social-btn" href="https://www.linkedin.com/in/harshal-bane" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="social-btn" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
-        <a class="social-btn" href="https://youtube.com/@HarshalBane" target="_blank" rel="noopener">YouTube</a>
-        <a class="social-btn" href="https://www.codechef.com/" target="_blank" rel="noopener">CodeChef</a>
+        <a class="social-btn" href="https://x.com/harshalbane9" target="_blank" rel="noopener">𝕏 / Twitter (@harshalbane9)</a>
+        <a class="social-btn" href="https://instagram.com/harshalbanee" target="_blank" rel="noopener">Instagram (@harshalbanee)</a>
+        <a class="social-btn" href="https://youtube.com/@kufounder" target="_blank" rel="noopener">YouTube (@kufounder)</a>
+        <a class="social-btn" href="https://www.codechef.com/users/harshalbane9" target="_blank" rel="noopener">CodeChef (harshalbane9)</a>
       </div>
     </div>
     <div>
@@ -1016,10 +1035,8 @@ transitionLinks.forEach(link => {
     const label = link.textContent.trim().replace(/[^a-zA-Z0-9]/g, '') || 'VIEW';
     curtainLabel.textContent = `NAVIGATING TO ${label}`;
     
-    // Step 1: Slide in curtain
     curtain.classList.add('active');
 
-    // Step 2: Jump/scroll to section behind curtain
     setTimeout(() => {
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
@@ -1027,7 +1044,6 @@ transitionLinks.forEach(link => {
       }
     }, 450);
 
-    // Step 3: Slide out curtain
     setTimeout(() => {
       curtain.classList.remove('active');
     }, 950);
