@@ -162,16 +162,48 @@ body {
 
 /* ================= HEADER & NAV ================= */
 header {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 16px 0 36px 0;
+  position: relative;
 }
+
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: flex-start;
 }
+
+/* Centered Logo */
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-decoration: none;
+  color: var(--text-main);
+  text-align: center;
+  justify-self: center;
+}
+.logo span, .accent { color: var(--accent); }
+
+/* Right-Hand Navigation */
+nav {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-end;
+}
+nav a, .transition-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+nav a:hover, .transition-link:hover { color: var(--accent); }
+
 /* Left-side Category / Menu Drawer button */
 .browse-btn {
   display: inline-flex;
@@ -204,20 +236,12 @@ header {
   background: currentColor;
   border-radius: 2px;
 }
-.logo {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  text-decoration: none;
-  color: var(--text-main);
-}
-.logo span, .accent { color: var(--accent); }
 
 /* Quick Category Dropdown */
 .category-dropdown {
   position: absolute;
   top: 70px;
-  left: 24px;
+  left: 0;
   background: var(--panel-bg);
   border: 1px solid var(--panel-border);
   backdrop-filter: blur(14px);
@@ -244,17 +268,6 @@ header {
   background: var(--badge-bg);
   color: var(--accent);
 }
-
-nav { display: flex; gap: 18px; align-items: center; }
-nav a, .transition-link {
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: color 0.2s;
-  cursor: pointer;
-}
-nav a:hover, .transition-link:hover { color: var(--accent); }
 
 /* Theme Toggle Button */
 .theme-toggle-btn {
@@ -848,7 +861,7 @@ footer {
   .about, .grid-2, .grid-3, .event-list, .yt-card, .contact-grid, .stats-bar { grid-template-columns: 1fr; }
   .contact-banner { flex-direction: column; align-items: flex-start; }
   footer { flex-direction: column; gap: 10px; align-items: flex-start; }
-  nav { display: none; } /* Handled through Browse Categories on mobile */
+  nav { gap: 8px; }
 }
 </style>
 </head>
@@ -880,10 +893,10 @@ footer {
 </div>
 
 <div class="container">
-<!-- Navigation Header with Browse Drawer on LHS -->
+<!-- Navigation Header: Left (Browse), Center (HB.), Right (Contact + Theme Toggle) -->
 <header>
+  <!-- Left Side: Browse Categories -->
   <div class="nav-left">
-    <!-- Browse Categories Button on LHS -->
     <button class="browse-btn" id="browse-btn" aria-label="Browse Categories">
       <div class="browse-lines">
         <span></span>
@@ -892,10 +905,9 @@ footer {
       </div>
       <span>Browse Categories</span>
     </button>
-    <a class="logo transition-link" data-target="#home">HB<span>.</span></a>
   </div>
 
-  <!-- Left Side Category Dropdown -->
+  <!-- Left Side Drawer Dropdown -->
   <div class="category-dropdown" id="category-dropdown">
     <a class="transition-link" data-target="#home">🏠 Home</a>
     <a class="transition-link" data-target="#about">👤 About Me</a>
@@ -907,14 +919,13 @@ footer {
     <a class="transition-link" data-target="#contact">📬 Where to Find Me</a>
   </div>
 
+  <!-- Center: Perfectly Centered HB. Logo -->
+  <a class="logo transition-link" data-target="#home">HB<span>.</span></a>
+
+  <!-- Right Side: Contact & Dark/Light Switcher Only -->
   <nav>
-    <a class="transition-link" data-target="#about">About</a>
-    <a class="transition-link" data-target="#credentials">Credentials</a>
-    <a class="transition-link" data-target="#projects">Portfolio</a>
-    <a class="transition-link" data-target="#media">Interviews</a>
     <a class="transition-link" data-target="#contact">Contact</a>
     
-    <!-- Dark / Light Mode Switcher -->
     <button class="theme-toggle-btn" id="theme-btn" aria-label="Toggle Theme">
       <svg class="theme-icon" id="theme-icon" viewBox="0 0 24 24">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
