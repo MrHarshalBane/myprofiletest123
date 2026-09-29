@@ -1021,7 +1021,7 @@ footer {
     <h1>I'm <span class="hero-name-gradient">Harshal Bane</span>.</h1>
     <div class="hero-roles">Software Developer · Open Source Contributor</div>
     <p class="lead">
-      "Lad with a million dreams." Pursuing B.E. in Information Technology at Thakur College of Engineering & Technology (TCET), Mumbai. Developing production-ready systems, AI-driven logistics engines, and building with open-source ecosystems.
+      "Lad with a million dreams." Pursuing B.Tech in Information Technology at Thakur College of Engineering & Technology (TCET), Mumbai (Sept 2025 – 2029). Developing production-ready systems, AI-driven logistics engines, and building with open-source ecosystems.
     </p>
     <div class="cta-group">
       <a class="button primary transition-link" data-target="#projects">Explore Projects ↗</a>
@@ -1050,18 +1050,18 @@ footer {
   </div>
 </section>
 
-<!-- Stats Counter Bar -->
+<!-- Stats Counter Bar (Animated On Finish of Preloader) -->
 <div class="stats-bar">
   <div class="stat-card">
-    <div class="stat-num" id="stat-ideas">80+</div>
+    <div class="stat-num" id="stat-ideas" data-target="80">0+</div>
     <div class="stat-label">Crazy Ideas</div>
   </div>
   <div class="stat-card">
-    <div class="stat-num" id="stat-cups">150+</div>
+    <div class="stat-num" id="stat-cups" data-target="150">0+</div>
     <div class="stat-label">Coffee Cups</div>
   </div>
   <div class="stat-card">
-    <div class="stat-num" id="stat-hours">720+</div>
+    <div class="stat-num" id="stat-hours" data-target="720">0+</div>
     <div class="stat-label">Hours of Code</div>
   </div>
 </div>
@@ -1104,7 +1104,7 @@ footer {
       </div>
       <div class="fact">
         <strong>Experience</strong>
-        <span>PrepGrad Intern</span>
+        <span>PrepGrad & SkillSet Go Intern</span>
       </div>
     </div>
   </div>
@@ -1119,9 +1119,9 @@ footer {
     <article class="card">
       <div class="item-header">
         <span class="tag tag-red">Bachelor's Degree</span>
-        <small class="tag" style="border:none; background:transparent;">July 2019 - Present</small>
+        <small class="tag" style="border:none; background:transparent;">Sept 2025 - 2029</small>
       </div>
-      <h3 class="role-title">B.E. in Information Technology (IT)</h3>
+      <h3 class="role-title">B.Tech in Information Technology (IT)</h3>
       <p style="color: var(--blue-light); margin-bottom: 8px;">Thakur College of Engineering & Technology (TCET), Mumbai</p>
       <p style="margin-bottom: 8px;">Academic background with foundational coursework at KJ Somaiya College of Engineering.</p>
       <p>Group Admin at <strong>PYQ WEBSITE UPDATES</strong> (<a href="https://pyqs-isk.pages.dev" target="_blank" rel="noopener" style="color: var(--red-neon); text-decoration: underline;">pyqs-isk.pages.dev</a>) — the largest WhatsApp community of engineering students at TCET, Mumbai.</p>
@@ -1142,8 +1142,18 @@ footer {
 <!-- Experience & Open Source -->
 <section id="experience">
   <div class="section-title"><span>03.</span> Experience & Highlights</div>
-  <div class="section-subtitle">Practical engineering and open-source contributions</div>
+  <div class="section-subtitle">Practical engineering, internships, and open-source contributions</div>
   <div class="grid-2">
+    <article class="card">
+      <div class="item-header">
+        <span class="tag tag-red">Internship</span>
+        <small class="tag" style="border:none; background:transparent;">Blockchain & Web3</small>
+      </div>
+      <h3 class="role-title">Software Engineering Intern</h3>
+      <p style="color: var(--red-neon); margin-bottom: 8px;">SkillSet Go EduTech</p>
+      <p>Working on decentralized architectures, smart contracts, Web3 integration, and exploring blockchain-driven educational frameworks.</p>
+    </article>
+
     <article class="card">
       <div class="item-header">
         <span class="tag">Internship</span>
@@ -1154,7 +1164,7 @@ footer {
       <p>Worked on practical front-end engineering, implementing responsive user interfaces, modular components, and improving program flow.</p>
     </article>
 
-    <article class="card">
+    <article class="card" style="grid-column: 1 / -1;">
       <div class="item-header">
         <span class="tag tag-red">Open Source</span>
         <small class="tag" style="border:none; background:transparent;">2026</small>
@@ -1311,7 +1321,7 @@ footer {
       <img 
         class="yt-thumb" 
         src="https://img.youtube.com/vi/eo2caKaSjEQ/maxresdefault.jpg" 
-        alt="10 LPA redBus Interview by Harshal Bane"
+        alt="10 LPA redBus Interview by Harshal Bane" 
         onerror="this.src='https://img.youtube.com/vi/eo2caKaSjEQ/hqdefault.jpg';"
       >
       <div class="yt-play-btn">
@@ -1355,6 +1365,7 @@ footer {
         <span class="chip">Java</span>
         <span class="chip">Python</span>
         <span class="chip">C / C++</span>
+        <span class="chip">Solidity / Web3</span>
         <span class="chip">Data Structures & Algorithms</span>
         <span class="chip">DBMS & SQL</span>
         <span class="chip">Digital Circuits</span>
@@ -1452,18 +1463,50 @@ window.addEventListener('mousemove', (e) => {
 });
 
 // ==========================================================================
-// 3. INITIAL PRELOADER
+// 3. STATS COUNT-UP ANIMATION
+// ==========================================================================
+function animateStats() {
+  const statElements = document.querySelectorAll('.stat-num');
+  statElements.forEach(stat => {
+    const target = parseInt(stat.getAttribute('data-target'), 10);
+    const duration = 1600; // ms
+    const startTime = performance.now();
+
+    function updateCount(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // easeOutCubic curve
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      const currentVal = Math.floor(easeProgress * target);
+
+      stat.textContent = `${currentVal}+`;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCount);
+      } else {
+        stat.textContent = `${target}+`;
+      }
+    }
+    requestAnimationFrame(updateCount);
+  });
+}
+
+// ==========================================================================
+// 4. INITIAL PRELOADER
 // ==========================================================================
 window.addEventListener('load', () => {
   setTimeout(() => {
     const preloader = document.getElementById('preloader');
     preloader.style.opacity = '0';
     preloader.style.visibility = 'hidden';
+    
+    // Trigger count-up animation immediately after preloader fades
+    setTimeout(animateStats, 200);
   }, 980);
 });
 
 // ==========================================================================
-// 4. SCROLL REVEAL OBSERVER
+// 5. SCROLL REVEAL OBSERVER
 // ==========================================================================
 const sections = document.querySelectorAll('section');
 const observer = new IntersectionObserver((entries) => {
@@ -1476,7 +1519,7 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(sec => observer.observe(sec));
 
 // ==========================================================================
-// 5. BROWSE CATEGORIES DROPDOWN (LHS)
+// 6. BROWSE CATEGORIES DROPDOWN (LHS)
 // ==========================================================================
 const browseBtn = document.getElementById('browse-btn');
 const categoryDropdown = document.getElementById('category-dropdown');
@@ -1493,7 +1536,7 @@ document.addEventListener('click', (e) => {
 });
 
 // ==========================================================================
-// 6. 1-SECOND PAGE TRANSITION CURTAIN EFFECT
+// 7. 1-SECOND PAGE TRANSITION CURTAIN EFFECT
 // ==========================================================================
 const curtain = document.getElementById('page-curtain');
 const curtainLabel = document.getElementById('curtain-label');
@@ -1523,7 +1566,7 @@ transitionLinks.forEach(link => {
 });
 
 // ==========================================================================
-// 7. INTERACTIVE PROJECT CAROUSEL SYSTEM
+// 8. INTERACTIVE PROJECT CAROUSEL SYSTEM
 // ==========================================================================
 const track = document.getElementById('carousel-track');
 const prevBtn = document.getElementById('prev-slide');
@@ -1612,7 +1655,7 @@ track.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
 track.addEventListener('mouseleave', startAutoSlide);
 
 // ==========================================================================
-// 8. MOVE TO TOP BUTTON
+// 9. MOVE TO TOP BUTTON
 // ==========================================================================
 const backToTopBtn = document.getElementById('back-to-top');
 
@@ -1629,7 +1672,7 @@ backToTopBtn.addEventListener('click', () => {
 });
 
 // ==========================================================================
-// 9. YOUTUBE VIDEO MODAL
+// 10. YOUTUBE VIDEO MODAL
 // ==========================================================================
 const modal = document.getElementById('video-modal');
 const iframe = document.getElementById('yt-iframe');
