@@ -621,68 +621,7 @@ section.revealed { opacity: 1; transform: translateY(0); }
 .event-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
 .event-item span { font-size: 13px; color: var(--text-secondary); }
 
-/* ==========================================================================
-   PORTFOLIO: SLIDESHOW & GITHUB DIRECT REPO ACCESS
-   ========================================================================== */
-.carousel-controls-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 20px;
-}
-.filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-.filter-btn {
-  background: var(--badge-bg);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  padding: 6px 14px;
-  border-radius: 99px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.filter-btn:hover, .filter-btn.active {
-  background: var(--red-neon);
-  color: #fff;
-  border-color: var(--red-neon);
-}
-.slide-arrows { display: flex; gap: 10px; }
-.arrow-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-.arrow-btn:hover {
-  border-color: var(--red-neon);
-  background: var(--badge-red-bg);
-  color: var(--red-neon);
-}
-.arrow-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; }
-
-.carousel-viewport { overflow: hidden; position: relative; border-radius: 18px; padding: 4px; }
-.carousel-track {
-  display: flex;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  gap: 20px;
-}
-.project-card {
-  flex: 0 0 calc(50% - 10px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 275px;
-}
+/* Github Discover Card (Reused for projects) */
 .github-discover-card {
   background: linear-gradient(135deg, rgba(255, 42, 95, 0.1), rgba(37, 99, 235, 0.12));
   border: 1.5px dashed var(--red-neon) !important;
@@ -691,38 +630,6 @@ section.revealed { opacity: 1; transform: translateY(0); }
   border-style: solid !important;
   box-shadow: 0 20px 45px -12px rgba(255, 42, 95, 0.35) !important;
 }
-.project-links {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 18px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border-subtle);
-}
-.git-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--blue-light);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-.git-link:hover { color: var(--red-neon); text-decoration: underline; }
-.git-link svg { width: 16px; height: 16px; fill: currentColor; }
-
-.carousel-dots { display: flex; justify-content: center; gap: 8px; margin-top: 22px; }
-.dot {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: var(--border-subtle);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.dot.active { width: 28px; border-radius: 99px; background: var(--red-neon); }
 
 /* ==========================================================================
    INTERVIEW & MEDIA SECTION
@@ -1208,148 +1115,29 @@ footer {
     <div class="event-item">
       <h4>Paytm Office Tech Sessions</h4>
       <span>Explored backend design, microservices, and high-scale transaction infrastructure.</span>
-      <div style="margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-subtle);">
-        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=800&auto=format&fit=crop" alt="Tech Office Session" style="width: 100%; display: block;">
-      </div>
     </div>
     <div class="event-item">
-      <h4>Fun Time with Friends</h4>
-      <span>Bowling and hanging out to recharge!</span>
-      <div style="margin-top: 12px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-subtle);">
-        <img src="https://images.unsplash.com/photo-1512686139976-591b61d36be4?q=80&w=800&auto=format&fit=crop" alt="Bowling with friends" style="width: 100%; display: block;">
-      </div>
-    </div>
-    <div class="event-item" style="grid-column: 1 / -1;">
       <h4>Automation Expo Mumbai</h4>
       <span>Observed cutting-edge industrial automation, robotics, and smart embedded systems.</span>
     </div>
   </div>
 </section>
 
-<!-- Portfolio / Selected Projects -->
+<!-- Portfolio / Selected Projects (Cleaned up as requested) -->
 <section id="projects">
   <div class="section-title"><span>05.</span> Portfolio</div>
-  <div class="section-subtitle">Check out my projects — browse interactive slides or inspect the source code directly on GitHub.</div>
+  <div class="section-subtitle">Check out my open-source contributions and projects on GitHub.</div>
   
-  <div class="carousel-controls-bar">
-    <div class="filter-tabs">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="web">AgriTech & Web</button>
-      <button class="filter-btn" data-filter="mobile">Flutter / Mobile</button>
-    </div>
-    <div class="slide-arrows">
-      <button class="arrow-btn" id="prev-slide" aria-label="Previous slide">
-        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="arrow-btn" id="next-slide" aria-label="Next slide">
-        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-    </div>
+  <div style="display: flex; justify-content: center; margin-top: 30px;">
+    <article class="card github-discover-card" style="text-align: center; max-width: 650px; width: 100%; padding: 40px 30px;">
+      <h3 class="role-title" style="margin-bottom: 12px; font-size: 22px;">Explore 80+ Open Source Projects</h3>
+      <p style="margin-bottom: 28px; font-size: 16px;">For my open-source experiments, blockchain systems, competitive programming templates, and ongoing builds, view my full repository list on GitHub.</p>
+      <a class="button primary" href="https://github.com/MrHarshalBane?tab=repositories" target="_blank" rel="noopener" style="display: inline-flex; justify-content: center; padding: 14px 28px;">
+        <svg style="width:18px;height:18px;fill:currentColor;margin-right:8px;" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        View GitHub Repositories ↗
+      </a>
+    </article>
   </div>
-
-  <div class="carousel-viewport">
-    <div class="carousel-track" id="carousel-track">
-      
-      <!-- Project 1: Crop Insurance Bridge -->
-      <article class="card project-card" data-category="web">
-        <div>
-          <div class="item-header"><span class="tag tag-red">AgriTech / Web</span></div>
-          <h3 class="role-title" style="margin-top: 8px;">Crop Insurance Bridge</h3>
-          <p>A digitized platform accelerating agricultural claim verifications, streamlining assessment records, and connecting farmers with insurers.</p>
-        </div>
-        <div class="project-links">
-          <a class="git-link" href="https://github.com/MrHarshalBane/crop-insurance-bridge" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub Repo ↗
-          </a>
-          <span style="font-size: 12px; color: var(--red-neon);">crop-insurance-bridge</span>
-        </div>
-      </article>
-
-      <!-- Project 2: Creator Platform XYZ -->
-      <article class="card project-card" data-category="web">
-        <div>
-          <div class="item-header"><span class="tag tag-red">Web / Flutter</span></div>
-          <h3 class="role-title" style="margin-top: 8px;">Creator Platform XYZ</h3>
-          <p>Community platform engineered for independent creators to monetize digital assets and manage audience engagement workflows.</p>
-        </div>
-        <div class="project-links">
-          <a class="git-link" href="https://github.com/MrHarshalBane/xyz_creator_platform" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub Repo ↗
-          </a>
-          <span style="font-size: 12px; color: var(--red-neon);">xyz_creator_platform</span>
-        </div>
-      </article>
-
-      <!-- Project 3: TaskFlow Flutter App -->
-      <article class="card project-card" data-category="mobile">
-        <div>
-          <div class="item-header"><span class="tag tag-red">Flutter / Dart</span></div>
-          <h3 class="role-title" style="margin-top: 8px;">TaskFlow App</h3>
-          <p>Productivity and personal sprint management mobile app built with Flutter, focused on local caching, clean architecture, and responsive task tracking.</p>
-        </div>
-        <div class="project-links">
-          <a class="git-link" href="https://github.com/MrHarshalBane/taskflow-flutter" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub Repo ↗
-          </a>
-          <span style="font-size: 12px; color: var(--red-neon);">taskflow-flutter</span>
-        </div>
-      </article>
-
-      <!-- Project 4: Smart Contracts Development -->
-      <article class="card project-card" data-category="web">
-        <div>
-          <div class="item-header"><span class="tag tag-red">Web3 / Solidity</span></div>
-          <h3 class="role-title" style="margin-top: 8px;">Smart Contracts Development</h3>
-          <p>Decentralized educational credential verification system using smart contracts to ensure tamper-proof academic records.</p>
-        </div>
-        <div class="project-links">
-          <a class="git-link" href="https://github.com/MrHarshalBane?tab=repositories" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub Repo ↗
-          </a>
-          <span style="font-size: 12px; color: var(--red-neon);">View Source Code</span>
-        </div>
-      </article>
-
-      <!-- Project 5: Algo-Visualizer -->
-      <article class="card project-card" data-category="web">
-        <div>
-          <div class="item-header"><span class="tag tag-red">React / Web</span></div>
-          <h3 class="role-title" style="margin-top: 8px;">Algo-Visualizer</h3>
-          <p>An interactive web application built to visualize complex data structures and algorithms in real-time for educational purposes.</p>
-        </div>
-        <div class="project-links">
-          <a class="git-link" href="https://github.com/MrHarshalBane/Algo-Visualizer" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub Repo ↗
-          </a>
-          <span style="font-size: 12px; color: var(--red-neon);">Algo-Visualizer</span>
-        </div>
-      </article>
-
-      <!-- Project 6: Discover Other Projects on GitHub -->
-      <article class="card project-card github-discover-card" data-category="web">
-        <div>
-          <div class="item-header"><span class="tag tag-red">View All Repositories</span></div>
-          <h3 class="role-title" style="margin-top: 8px;">Explore 80+ Open Source Projects</h3>
-          <p>For more open-source experiments, blockchain systems, competitive programming templates, and ongoing builds, view my full repository list.</p>
-        </div>
-        <div class="project-links">
-          <a class="git-link" href="https://github.com/MrHarshalBane?tab=repositories" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            github.com/MrHarshalBane ↗
-          </a>
-          <span style="font-size: 12px; color: var(--red-neon);">Full Repository List</span>
-        </div>
-      </article>
-
-    </div>
-  </div>
-
-  <div class="carousel-dots" id="carousel-dots"></div>
 </section>
 
 <!-- Technical Interviews & Mentorship Spotlight -->
@@ -1543,7 +1331,7 @@ footer {
 </section>
 </main>
 
-<!-- Footer: Strictly "Copyright © @ Harshal Uttam Bane" linking to LinkedIn without year -->
+<!-- Footer -->
 <footer>
   <div>
     Copyright © <a class="designer-link" href="https://www.linkedin.com/in/harshal-bane" target="_blank" rel="noopener">@ Harshal Uttam Bane</a>
@@ -1587,7 +1375,6 @@ function animateStats() {
     function updateCount(currentTime) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutCubic curve
       const easeProgress = 1 - Math.pow(1 - progress, 3);
       const currentVal = Math.floor(easeProgress * target);
 
@@ -1612,7 +1399,6 @@ window.addEventListener('load', () => {
     preloader.style.opacity = '0';
     preloader.style.visibility = 'hidden';
     
-    // Trigger count-up animation immediately after preloader fades
     setTimeout(animateStats, 200);
   }, 980);
 });
@@ -1678,96 +1464,7 @@ transitionLinks.forEach(link => {
 });
 
 // ==========================================================================
-// 8. INTERACTIVE PROJECT CAROUSEL SYSTEM
-// ==========================================================================
-const track = document.getElementById('carousel-track');
-const prevBtn = document.getElementById('prev-slide');
-const nextBtn = document.getElementById('next-slide');
-const dotsContainer = document.getElementById('carousel-dots');
-const filterBtns = document.querySelectorAll('.filter-btn');
-let allCards = Array.from(document.querySelectorAll('.project-card'));
-
-let visibleCards = [...allCards];
-let currentIndex = 0;
-let autoSlideTimer = null;
-
-function getCardsPerView() {
-  return window.innerWidth <= 880 ? 1 : 2;
-}
-
-function updateCarousel() {
-  const cardsPerView = getCardsPerView();
-  const maxIndex = Math.max(0, visibleCards.length - cardsPerView);
-  if (currentIndex > maxIndex) currentIndex = maxIndex;
-
-  const cardWidthPercent = 100 / cardsPerView;
-  const offset = -(currentIndex * cardWidthPercent);
-  track.style.transform = `translateX(${offset}%)`;
-
-  const totalSteps = maxIndex + 1;
-  dotsContainer.innerHTML = '';
-  for (let i = 0; i < totalSteps; i++) {
-    const dot = document.createElement('div');
-    dot.classList.add('dot');
-    if (i === currentIndex) dot.classList.add('active');
-    dot.addEventListener('click', () => {
-      currentIndex = i;
-      updateCarousel();
-    });
-    dotsContainer.appendChild(dot);
-  }
-}
-
-prevBtn.addEventListener('click', () => {
-  currentIndex = Math.max(0, currentIndex - 1);
-  updateCarousel();
-});
-
-nextBtn.addEventListener('click', () => {
-  const cardsPerView = getCardsPerView();
-  const maxIndex = Math.max(0, visibleCards.length - cardsPerView);
-  currentIndex = Math.min(maxIndex, currentIndex + 1);
-  updateCarousel();
-});
-
-filterBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filterBtns.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.getAttribute('data-filter');
-
-    allCards.forEach(card => {
-      const category = card.getAttribute('data-category');
-      if (filter === 'all' || category === filter || card.classList.contains('github-discover-card')) {
-        card.style.display = 'flex';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-
-    visibleCards = allCards.filter(c => c.style.display !== 'none');
-    currentIndex = 0;
-    updateCarousel();
-  });
-});
-
-window.addEventListener('resize', updateCarousel);
-updateCarousel();
-
-function startAutoSlide() {
-  autoSlideTimer = setInterval(() => {
-    const cardsPerView = getCardsPerView();
-    const maxIndex = Math.max(0, visibleCards.length - cardsPerView);
-    currentIndex = currentIndex >= maxIndex ? 0 : currentIndex + 1;
-    updateCarousel();
-  }, 5000);
-}
-startAutoSlide();
-track.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
-track.addEventListener('mouseleave', startAutoSlide);
-
-// ==========================================================================
-// 9. MOVE TO TOP BUTTON
+// 8. MOVE TO TOP BUTTON
 // ==========================================================================
 const backToTopBtn = document.getElementById('back-to-top');
 
@@ -1784,7 +1481,7 @@ backToTopBtn.addEventListener('click', () => {
 });
 
 // ==========================================================================
-// 10. YOUTUBE VIDEO MODAL
+// 9. YOUTUBE VIDEO MODAL
 // ==========================================================================
 const modal = document.getElementById('video-modal');
 const iframe = document.getElementById('yt-iframe');
