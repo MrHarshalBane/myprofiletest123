@@ -20,15 +20,15 @@
        Default: Crisp, high-contrast clean white aesthetic with subtle depth,
                 glassmorphism, vibrant tech cyan and growth orange accents.
        ========================================================================== */
-    :root, [data-theme="light"] {
-      --bg: #f8fafc;
+    :root {
+      --bg: #ffffff;
       --bg-surface: #ffffff;
       --bg-surface-elevated: #ffffff;
       --bg-card: #ffffff;
       --bg-card-hover: #ffffff;
       --bg-pill: rgba(15, 23, 42, 0.05);
       --bg-pill-hover: rgba(15, 23, 42, 0.09);
-      --bg-nav: rgba(255, 255, 255, 0.88);
+      --bg-nav: rgba(255, 255, 255, 0.92);
       
       --border: rgba(15, 23, 42, 0.08);
       --border-hover: rgba(15, 23, 42, 0.2);
@@ -68,72 +68,12 @@
       --btn-secondary-border: rgba(15, 23, 42, 0.12);
       --btn-secondary-hover: rgba(15, 23, 42, 0.05);
 
-      --theme-toggle-bg: #ffffff;
-      --theme-toggle-border: rgba(15, 23, 42, 0.12);
-      --theme-toggle-color: #0f172a;
-
       --cursor-border: rgba(15, 23, 42, 0.5);
       --cursor-dot: #0f172a;
       
       --font-heading: 'Manrope', 'Space Grotesk', -apple-system, sans-serif;
       --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
-    }
-
-    [data-theme="dark"] {
-      --bg: #000000;
-      --bg-surface: #0a0a0f;
-      --bg-surface-elevated: #0f1017;
-      --bg-card: #0a0a0f;
-      --bg-card-hover: #111118;
-      --bg-pill: rgba(255, 255, 255, 0.04);
-      --bg-pill-hover: rgba(255, 255, 255, 0.09);
-      --bg-nav: rgba(0, 0, 0, 0.85);
-      
-      --border: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.22);
-      --border-glow-tech: rgba(6, 182, 212, 0.35);
-      --border-glow-growth: rgba(255, 94, 0, 0.35);
-
-      --tech-cyan: #06b6d4;
-      --tech-cyan-glow: rgba(6, 182, 212, 0.25);
-      --tech-purple: #a855f7;
-      
-      --growth-orange: #ff5e00;
-      --growth-orange-glow: rgba(255, 94, 0, 0.28);
-      --growth-pink: #ec4899;
-      --growth-amber: #f59e0b;
-      --accent-green: #22c55e;
-
-      --text-main: #ffffff;
-      --text-sub: rgba(255, 255, 255, 0.72);
-      --text-muted: rgba(255, 255, 255, 0.45);
-      --text-faint: rgba(255, 255, 255, 0.25);
-
-      --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      --card-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.7);
-      --nav-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-
-      --dot-grid-color: rgba(255, 255, 255, 0.06);
-      --ambient-glow-tech: rgba(6, 182, 212, 0.08);
-      --ambient-glow-growth: rgba(255, 94, 0, 0.06);
-
-      --btn-primary-bg: #ffffff;
-      --btn-primary-text: #000000;
-      --btn-primary-border: #ffffff;
-      --btn-primary-hover: rgba(255, 255, 255, 0.88);
-
-      --btn-secondary-bg: rgba(255, 255, 255, 0.03);
-      --btn-secondary-text: #ffffff;
-      --btn-secondary-border: rgba(255, 255, 255, 0.1);
-      --btn-secondary-hover: rgba(255, 255, 255, 0.08);
-
-      --theme-toggle-bg: rgba(255, 255, 255, 0.06);
-      --theme-toggle-border: rgba(255, 255, 255, 0.15);
-      --theme-toggle-color: #ffffff;
-
-      --cursor-border: rgba(255, 255, 255, 0.5);
-      --cursor-dot: #ffffff;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -235,11 +175,6 @@
       font-weight: 800;
       letter-spacing: -0.02em;
     }
-    [data-theme="dark"] .text-metallic {
-      background: linear-gradient(180deg, #ffffff 20%, rgba(255, 255, 255, 0.6) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
 
     .container {
       max-width: 1240px;
@@ -336,26 +271,6 @@
       align-items: center;
       gap: 12px;
     }
-    .theme-toggle-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: var(--theme-toggle-bg);
-      border: 1px solid var(--theme-toggle-border);
-      color: var(--theme-toggle-color);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 15px;
-      transition: all 0.2s ease;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-    }
-    .theme-toggle-btn:hover {
-      transform: translateY(-1px);
-      border-color: var(--border-hover);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
     .nav-cta {
       display: inline-flex;
       align-items: center;
@@ -434,21 +349,11 @@
       -webkit-text-fill-color: transparent;
       font-weight: 800;
     }
-    [data-theme="dark"] .gradient-tech {
-      background: linear-gradient(135deg, #ffffff 0%, #06b6d4 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
     .gradient-marketing {
       background: linear-gradient(135deg, #ea580c 0%, #e11d48 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       font-weight: 800;
-    }
-    [data-theme="dark"] .gradient-marketing {
-      background: linear-gradient(135deg, #ff5e00 0%, #ec4899 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
     }
     .hero-desc {
       font-size: 1.15rem;
@@ -562,7 +467,8 @@
     /* Key Metrics Bar */
     .metrics-bar {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 680px;
       gap: 16px;
       margin-bottom: 48px;
     }
@@ -1276,9 +1182,6 @@
         <li><a href="#skills">Skills</a></li>
       </ul>
       <div class="nav-actions">
-        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Light and Dark Mode" title="Toggle Theme">
-          <i class="fa-solid fa-moon" id="theme-icon"></i>
-        </button>
         <a href="mailto:harshalbanework@gmail.com" class="nav-cta">
           <i class="fa-solid fa-paper-plane"></i> Let's Talk
         </a>
@@ -1352,7 +1255,7 @@
         </div>
       </div>
 
-      <!-- KEY METRICS BAR (Updated Followers terminology) -->
+      <!-- KEY METRICS BAR -->
       <div class="metrics-bar">
         <div class="metric-item">
           <div class="metric-number gradient-marketing">TCET</div>
@@ -1362,14 +1265,6 @@
           <div class="metric-number gradient-tech">30+</div>
           <div class="metric-label">Open Source & Web3 Repos</div>
         </div>
-        <div class="metric-item">
-          <div class="metric-number" style="color: #ec4899;">700+</div>
-          <div class="metric-label">Instagram Followers</div>
-        </div>
-        <div class="metric-item">
-          <div class="metric-number" style="color: #60a5fa;">400+</div>
-          <div class="metric-label">Facebook Followers</div>
-        </div>
       </div>
 
       <div class="btn-group">
@@ -1377,7 +1272,7 @@
           <i class="fa-solid fa-laptop-code"></i> Explore GitHub Projects
         </a>
         <a href="#marketing" class="btn btn-marketing">
-          <i class="fa-brands fa-youtube"></i> Watch Marketing Insights
+          <i class="fa-solid fa-bullhorn"></i> Marketing & Communication
         </a>
         <a href="mailto:harshalbanework@gmail.com" class="btn btn-secondary">
           <i class="fa-solid fa-envelope"></i> Get In Touch
@@ -1576,7 +1471,7 @@
           <div class="video-wrapper">
             <iframe 
               src="https://www.youtube.com/embed/WaBOlQfYOL4" 
-              title="Harshal Bane - Marketing & Growth Discussion" 
+              title="Harshal Bane - Yash Mhatre (Mythic Faces) Creator Economy & Marketing Discussion" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
               allowfullscreen>
             </iframe>
@@ -1584,75 +1479,30 @@
         </div>
         <div class="podcast-info">
           <div class="status-ticker" style="border-color: rgba(255, 94, 0, 0.4); background: rgba(255, 94, 0, 0.08); color: var(--growth-orange); margin-bottom: 16px;">
-            <i class="fa-solid fa-microphone-lines"></i> FEATURED PODCAST EPISODE
+            <i class="fa-solid fa-microphone-lines"></i> FEATURED PODCAST & INTERVIEW
           </div>
-          <h3>Marketing Insights & Strategic Dialogue</h3>
+          <h3>Yash Mhatre (Mythic Faces): Why Top Stars In The Creator Economy Hire This Prosthetic Makeup Artist</h3>
           <p>
-            Engaging in deep dialogue on marketing domain dynamics, audience retention, and consumer psychology. Exploring how technical creators scale authentic digital presence and capture market attention.
+            Hosting and directing an in-depth conversation exploring creator economy dynamics, personal branding, and industry positioning. Showcasing spontaneous interview moderation, storytelling, strategic communication, and high-level marketing perspective.
           </p>
           <div class="podcast-highlights">
             <div class="highlight-item">
               <i class="fa-solid fa-check"></i>
-              <span><strong>Audience Psychology:</strong> Analyzing attention patterns across modern platforms.</span>
+              <span><strong>Presentation & Communication:</strong> Articulating complex creative narratives and driving engaging, high-impact dialogue.</span>
             </div>
             <div class="highlight-item">
               <i class="fa-solid fa-check"></i>
-              <span><strong>Multi-Format Repurposing:</strong> Transforming long-form conversations into high-converting Shorts & Reels.</span>
+              <span><strong>Marketing & Industry Positioning:</strong> Analyzing how top creators, makeup artists, and media figures build distinct market moats.</span>
             </div>
             <div class="highlight-item">
               <i class="fa-solid fa-check"></i>
-              <span><strong>Community-First Distribution:</strong> Converting casual viewers into active participants.</span>
+              <span><strong>Audience Retention & Hook Architecture:</strong> Structuring conversations to maintain narrative pacing and viewer engagement.</span>
             </div>
           </div>
           <a href="https://youtu.be/WaBOlQfYOL4?si=adSKu_EgrtG5uN4s" target="_blank" class="btn btn-marketing" style="font-size: 0.85rem; padding: 10px 20px;">
             <i class="fa-solid fa-play"></i> Watch Full Episode on YouTube
           </a>
         </div>
-      </div>
-
-      <!-- SOCIAL COMMUNITY METRICS (With Direct Links & Followers Terminology) -->
-      <div class="growth-grid">
-        <a href="https://instagram.com/harshalbanee" target="_blank" class="growth-card">
-          <div class="growth-card-icon icon-ig">
-            <i class="fa-brands fa-instagram"></i>
-          </div>
-          <div class="growth-card-title">
-            <span>Instagram Presence</span>
-            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-          </div>
-          <div class="growth-card-stat">700+ Followers</div>
-          <p class="growth-card-desc">
-            Cultivating an authentic audience through technical breakdowns, career guidance snippets, and tech ecosystem highlights.
-          </p>
-        </a>
-
-        <a href="https://facebook.com/MrHarshalBane" target="_blank" class="growth-card">
-          <div class="growth-card-icon icon-fb">
-            <i class="fa-brands fa-facebook"></i>
-          </div>
-          <div class="growth-card-title">
-            <span>Facebook Community</span>
-            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-          </div>
-          <div class="growth-card-stat">400+ Followers</div>
-          <p class="growth-card-desc">
-            Engaged organic network built on education updates, community discussions, and student peer connections.
-          </p>
-        </a>
-
-        <a href="https://youtube.com/@harshalbanee" target="_blank" class="growth-card">
-          <div class="growth-card-icon icon-yt">
-            <i class="fa-brands fa-youtube"></i>
-          </div>
-          <div class="growth-card-title">
-            <span>YouTube Shorts</span>
-            <i class="fa-solid fa-arrow-up-right-from-square link-arrow"></i>
-          </div>
-          <div class="growth-card-stat">Rapidly Expanding</div>
-          <p class="growth-card-desc">
-            Actively scaling tech deep-dives, developer frameworks, and educational Shorts engineered for algorithm discoverability.
-          </p>
-        </a>
       </div>
     </section>
 
@@ -1763,7 +1613,8 @@
           <div class="skills-category">
             <div class="skills-cat-title">Audience & Community Growth</div>
             <div class="skill-tags-flow">
-              <span class="skill-tag">Organic Instagram Building</span>
+              <span class="skill-tag">Organic Audience Growth</span>
+              <span class="skill-tag">Executive Presentation & Speaking</span>
               <span class="skill-tag">Community Management</span>
               <span class="skill-tag">Student Mentorship Funnels</span>
               <span class="skill-tag">Brand Storytelling</span>
@@ -1793,27 +1644,6 @@
           <a href="https://github.com/MrHarshalBane" target="_blank" class="social-btn">
             <i class="fa-brands fa-github"></i> GitHub
           </a>
-          <a href="https://www.linkedin.com/in/harshal-bane" target="_blank" class="social-btn">
-            <i class="fa-brands fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://instagram.com/harshalbanee" target="_blank" class="social-btn" style="color: #ec4899; border-color: rgba(236, 72, 153, 0.25);">
-            <i class="fa-brands fa-instagram"></i> Instagram
-          </a>
-          <a href="https://facebook.com/MrHarshalBane" target="_blank" class="social-btn" style="color: #60a5fa; border-color: rgba(96, 165, 250, 0.25);">
-            <i class="fa-brands fa-facebook"></i> Facebook
-          </a>
-          <a href="https://youtube.com/@harshalbanee" target="_blank" class="social-btn" style="color: #f87171; border-color: rgba(248, 113, 113, 0.25);">
-            <i class="fa-brands fa-youtube"></i> YouTube Shorts
-          </a>
-          <a href="https://youtube.com/@kufounder" target="_blank" class="social-btn" style="color: #ff5e00; border-color: rgba(255, 94, 0, 0.3);">
-            <i class="fa-brands fa-youtube"></i> YouTube
-          </a>
-          <a href="https://www.snapchat.com/@mrharshalbane" target="_blank" class="social-btn" style="color: #facc15; border-color: rgba(250, 204, 21, 0.3);">
-            <i class="fa-brands fa-snapchat"></i> Snapchat
-          </a>
-          <a href="https://x.com/harshalbane9" target="_blank" class="social-btn">
-            <i class="fa-brands fa-x-twitter"></i> Twitter / X
-          </a>
           <a href="https://codolio.com/profile/harshalbane" target="_blank" class="social-btn">
             <i class="fa-solid fa-code"></i> Codolio
           </a>
@@ -1821,41 +1651,16 @@
       </div>
     </section>
 
-    <!-- FOOTER (No bloat text, YouTube link points to @kufounder) -->
+    <!-- FOOTER -->
     <footer>
-      <p>© 2026 Harshal Bane • <a href="https://youtube.com/@kufounder" target="_blank">YouTube</a> • Engineered for speed & conversion.</p>
+      <p>© Harshal Bane • Engineered for speed & conversion.</p>
     </footer>
 
   </div>
 
   <script>
-    // Theme Engine: Light by default with seamless Dark mode toggle and localStorage memory
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('portfolio_theme', theme);
-      if (theme === 'dark') {
-        themeIcon.className = 'fa-solid fa-sun';
-        themeToggleBtn.setAttribute('title', 'Switch to Clean White Light Mode');
-      } else {
-        themeIcon.className = 'fa-solid fa-moon';
-        themeToggleBtn.setAttribute('title', 'Switch to Sleek Dark Mode');
-      }
-    }
-
-    // Initialize theme: Check saved theme or default to clean white light mode
-    const savedTheme = localStorage.getItem('portfolio_theme') || 'light';
-    setTheme(savedTheme);
-
-    if (themeToggleBtn) {
-      themeToggleBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        const nextTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(nextTheme);
-      });
-    }
+    // Clean White Light Mode (Always White)
+    document.documentElement.setAttribute('data-theme', 'light');
 
     // Precision dual-cursor tracker
     const cursor = document.getElementById('custom-cursor');
